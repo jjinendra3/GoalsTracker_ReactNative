@@ -1,26 +1,33 @@
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-} from "react-native";
+import { Pressable, View, Text, StyleSheet, FlatList } from "react-native";
 import React from "react";
 
 const ShowGoal = (props) => {
-  const { arr } = props;
+  const { arr, setarr } = props;
+  const deleter = (id) => {
+    let ar = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (id != i) {
+        ar.push(arr[i]);
+      }
+    }
+    setarr(ar);
+  };
   return (
     <View style={styles.goalsarea}>
       <Text style={styles.title}>Your List of Goals todo today are:</Text>
       <FlatList
-        data={arr.reverse()}
+        data={arr}
         renderItem={(element) => {
           return (
-            <TouchableOpacity>
-              <View style={styles.elements}>
+            <View style={styles.elements}>
+            <Pressable
+            android_ripple={{color:'black'}}
+              key={element.index}
+              onPress={deleter.bind(this, element.index)}
+            >
                 <Text>{element.item}</Text>
+            </Pressable>
               </View>
-            </TouchableOpacity>
           );
         }}
       />

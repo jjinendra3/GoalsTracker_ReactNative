@@ -1,4 +1,4 @@
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet, Alert } from "react-native";
 import React, { useState } from "react";
 
 const InputGoal = (props) => {
@@ -17,10 +17,15 @@ const InputGoal = (props) => {
         <Button
           title="Add Goal!"
           onPress={() => {
-            let ar = [...arr];
+            if(str.length!==0){
+              let ar = [...arr];
             ar.push(str);
             setstr("");
             setarr(ar);
+            }else{
+              Alert.alert('Error','Enter Some Values to Add Goals.');
+            }
+            
           }}
         ></Button>
       </View>

@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <InputGoal arr={arr} setarr={setarr} />
-      <ShowGoal arr={arr} />
+      <ShowGoal arr={arr} setarr={setarr}/>
     </View>
   );
 }
