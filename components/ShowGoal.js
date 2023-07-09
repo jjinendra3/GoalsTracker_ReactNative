@@ -14,20 +14,19 @@ const ShowGoal = (props) => {
   };
   return (
     <View style={styles.goalsarea}>
-      <Text style={styles.title}>Your List of Goals todo today are:</Text>
       <FlatList
         data={arr}
         renderItem={(element) => {
           return (
             <View style={styles.elements}>
-            <Pressable
-            android_ripple={{color:'black'}}
-              key={element.index}
-              onPress={deleter.bind(this, element.index)}
-            >
+              <Pressable
+                android_ripple={{ color: "black" }}
+                key={element.index}
+                onPress={deleter.bind(this, element.index)}
+              >
                 <Text>{element.item}</Text>
-            </Pressable>
-              </View>
+              </Pressable>
+            </View>
           );
         }}
       />
@@ -39,12 +38,14 @@ export default ShowGoal;
 const styles = StyleSheet.create({
   elements: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#19A7CE",
     borderStyle: "solid",
     padding: 10,
-    margin: 5,
+    margin: 10,
     textAlign: "center",
     justifyContent: "center",
+    borderRadius: 6,
+    backgroundColor: "#19A7CE",
   },
   title: {
     fontWeight: 500,
